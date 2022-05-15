@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+        <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+
+        <style>
+            .hiddenDefault {
+                color: black;
+            }
+
+
+        </style>
+    </head>
+    <body>
+
+        <h1>New Questionnaire</h1>
+        <h2>Create Question:</h2>
+
+        <!-- Question -->
+        <div>
+            <p>
+                Type in Question: 
+                <input style="width: 80%;" type="text" value="If you are near a pedestrian crossing and there are people waiting to cross the road, you should">
+                <br>
+                Upload Image: 
+                <input type="file" id="myFile" name="filename">
+                <input type="submit">
+            </p>
+            <P>Single Answer?</P>
+            <input type="radio" id="stRadio" name="Type_Answer" value="one" onclick="functionOne()">
+            <label for="one">Text: Single Correct Text Answer (Radio button)</label><br>
+            <input type="radio" id="spRadio" name="Type_Answer" value="two" onclick="functionTwo()">
+            <label for="two">Picture: Single Correct Picture Answer (Checkbox)</label><br>
+            
+            <P>Multiple Answer?</P>
+            <input type="radio" id="mtRadio" name="Type_Answer" value="three" onclick="functionThree()">
+            <label for="three">Text: Multiple Correct Text Answer (Radio button)</label><br>
+            <input type="radio" id="mpRadio" name="Type_Answer" value="four" onclick="functionFour()">
+            <label for="four">Picture: Multiple Correct Picture Answer (Checkbox)</label><br>
+        </div>
+        <br>
+        <!-- <input id="Submit_Answer_Type" type="submit" value="Submit Answer Type"> -->
+        
+        <!-- Single Text Answer -->
+        <div id="Single_Text_Answer" class="hiddenDefault" style="display:none;">
+            <P>Single Text Answer</P>
+        
+            <p>
+                <input type="radio" id="121" name="Single_Answer" value="one">
+                1. 
+                <input style="width: 80%;" id="121x" type="text" value="Slow down, press horn and proceed">
+            </p>
+            <p>
+                <input type="radio" id="122" name="Single_Answer" value="one">
+                2. 
+                <input style="width: 80%;" id="122x" type="text" value="Press horn and proceed">
+            </p>
+            <p>
+                <input type="radio" id="123" name="Single_Answer" value="one">
+                3. 
+                <input style="width: 80%;" id="123x" type="text" value="Stop the vehicle, wait until pedestrians cross and then move forward">
+            </p>
+            <p>
+                <input type="radio" id="124" name="Single_Answer" value="one">
+                4. 
+                <input style="width: 80%;" id="124x" type="text" value="Run over people, thats fine, they were not supposed to be there.">
+            </p>
+            <input type="submit" value="Submit">
+        </div>
+
+        <!-- Multipe Text Answer -->
+        <div id="Multiple_Text_Answer" class="hiddenDefault" style="display:none;">
+            <P>Multiple Text Answer</P>
+        
+            <p>
+                <input type="checkbox" id="131" name="Multiple_Answer" value="one">
+                1. 
+                <input style="width: 80%;" id="131x" type="text" value="Slow down, press horn and proceed">
+            </p>
+            <p>
+                <input type="checkbox" id="132" name="Multiple_Answer" value="one">
+                2. 
+                <input style="width: 80%;" id="132x" type="text" value="Press horn and proceed">
+            </p>
+            <p>
+                <input type="checkbox" id="133" name="Multiple_Answer" value="one">
+                3. 
+                <input style="width: 80%;" id="133x" type="text" value="Stop the vehicle, wait until pedestrians cross and then move forward">
+            </p>
+            <p>
+                <input type="checkbox" id="134" name="Multiple_Answer" value="one">
+                4. 
+                <input style="width: 80%;" id="134x" type="text" value="Run over people, thats fine, they were not supposed to be there.">
+            </p>
+            <input type="submit" value="Submit">
+        </div>
+
+        <!-- Single Picture Answer -->
+        <div id="Single_Picture_Answer" class="hiddenDefault" style="display:none;">
+            <P>Single Picture Answer</P>
+        
+            <p>
+                <input type="radio" id="121" name="Single_Answer" value="one">
+                1. 
+                
+                <input type="file" id="myFile" name="filename">
+            </p>
+            <p>
+                <input type="radio" id="122" name="Single_Answer" value="one">
+                2. 
+                <input type="file" id="myFile" name="filename">
+                
+            </p>
+            <p>
+                <input type="radio" id="123" name="Single_Answer" value="one">
+                3. 
+                <input type="file" id="myFile" name="filename">
+            </p>
+            <p>
+                <input type="radio" id="124" name="Single_Answer" value="one">
+                4. 
+                <input type="file" id="myFile" name="filename">
+            </p>
+            <input type="submit" value="Submit">
+        </div>
+        
+        
+        <!-- Multipe Picture Answer -->
+        <div id="Multiple_Picture_Answer" class="hiddenDefault" style="display:none;">
+            <P>Multiple Picture Answer</P>
+        
+            <p>
+                <input type="checkbox" id="131" name="Multiple_Answer" value="one">
+                1. 
+                <input type="file" id="myFile" name="filename">
+            </p>
+            <p>
+                <input type="checkbox" id="132" name="Multiple_Answer" value="one">
+                2. 
+                <input type="file" id="myFile" name="filename">
+            </p>
+            <p>
+                <input type="checkbox" id="133" name="Multiple_Answer" value="one">
+                3. 
+                <input type="file" id="myFile" name="filename">
+            </p>
+            <p>
+                <input type="checkbox" id="134" name="Multiple_Answer" value="one">
+                4. 
+                <input type="file" id="myFile" name="filename">
+            </p>
+
+            <input type="submit" value="Submit">
+        </div>
+    
+
+        
+        
+        <script>
+            var st = document.getElementById("Single_Text_Answer");
+            var mt = document.getElementById("Multiple_Text_Answer");
+            var sp = document.getElementById("Single_Picture_Answer");
+            var mp = document.getElementById("Multiple_Picture_Answer");
+
+            function functionOne(){
+                st.style.display = "block";
+                mt.style.display = "none";
+                sp.style.display = "none";
+                mp.style.display = "none";
+            }
+
+            function functionTwo(){
+                st.style.display = "none";
+                mt.style.display = "none";
+                sp.style.display = "block";
+                mp.style.display = "none";
+            }
+
+            function functionThree(){
+                st.style.display = "none";
+                mt.style.display = "block";
+                sp.style.display = "none";
+                mp.style.display = "none";
+            }
+
+            function functionFour(){
+                st.style.display = "none";
+                mt.style.display = "none";
+                sp.style.display = "none";
+                mp.style.display = "Block";
+            }
+                
+        </script>
+    </body>
+</html>
